@@ -1,12 +1,10 @@
 
-<h1 align="center">Heepay Customer</h1>
-
-<p align="center">汇付宝支付商户入驻资料国密SM2签名和验签PHP扩展</p>
+<h1 align="center">国密SM2签名和验签PHP扩展</h1>
 
 ## 安装
 
 ```sh
-$ composer require vochina/heepay-customer -vvv
+$ composer install
 ```
 
 ## 配置
@@ -26,7 +24,7 @@ $handler = new HeepayCustomer($sm2PrivateKeyPath, $sm2publicKeyPath);
 ###  签名方法 (注意：汇付宝要求签名前把请求参数格式化，请调用parameterText方法格式化后再签名)
 
 ```php
-$result = $handler->sign('This is the string that needs to be signed!');
+$result = $handler->sign('This is the string that needs to be signed!',"cer_id");
 ```
 示例：
 
