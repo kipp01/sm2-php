@@ -1,0 +1,30 @@
+{
+  "name": "vochina/heepay-customer",
+  "description": "汇付宝支付-商户入驻资料-国密SM2签名PHP扩展",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Vochina\\HeepayCustomer\\": "./src"
+    }
+  },
+  "authors": [
+    {
+      "name": "vochina",
+      "email": "wuzuoqiang@gmail.com"
+    }
+  ],
+  "require": {
+    "lpilp/guomi": "dev-main"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5",
+    "mockery/mockery": "^1.5"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Vochina\\HeepayCustomer\\ServiceProvider"
+      ]
+    }
+  }
+}
