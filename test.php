@@ -12,3 +12,8 @@ $result = $handler->sign(
     'JST_18JBXZWBH5Q0W'
 );
 echo $result;
+
+// java
+
+// exec("java -jar sm2sign.jar '" . $this->convertHttpBuildQuery($this->commonData) . "'", $sign);
+// echo trim($sign[0]);
