@@ -1,6 +1,6 @@
 
 <h1 align="center">国密SM2签名和验签PHP扩展</h1>
-
+<p>参考test.php操作示例</p>
 ## 安装
 
 ```sh
@@ -21,7 +21,7 @@ $sm2publicKeyPath = __DIR__ . '/test_sm2_public_key.pem';
 $handler = new HeepayCustomer($sm2PrivateKeyPath, $sm2publicKeyPath);
 ```
 
-###  签名方法 (注意：汇付宝要求签名前把请求参数格式化，请调用parameterText方法格式化后再签名)
+###  签名方法 (注意：要求签名前把请求参数格式化，或者使用调用parameterText方法格式化后再签名)
 
 ```php
 $result = $handler->sign('This is the string that needs to be signed!',"cer_id");
