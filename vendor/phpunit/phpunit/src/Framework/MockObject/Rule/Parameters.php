@@ -47,7 +47,7 @@ final class Parameters implements ParametersRule
         foreach ($parameters as $parameter) {
             if (!($parameter instanceof Constraint)) {
                 $parameter = new IsEqual(
-                    $parameter,
+                    $parameter
                 );
             }
 
@@ -92,8 +92,8 @@ final class Parameters implements ParametersRule
      * does the rule will get the invoked() method called which should check
      * if an expectation is met.
      *
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      */
     public function verify(): void
     {
@@ -101,8 +101,8 @@ final class Parameters implements ParametersRule
     }
 
     /**
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      */
     private function doVerify(): bool
     {
@@ -127,7 +127,7 @@ final class Parameters implements ParametersRule
             }
 
             throw new ExpectationFailedException(
-                sprintf($message, $this->invocation->toString()),
+                sprintf($message, $this->invocation->toString())
             );
         }
 
@@ -138,8 +138,8 @@ final class Parameters implements ParametersRule
                     'Parameter %s for invocation %s does not match expected ' .
                     'value.',
                     $i,
-                    $this->invocation->toString(),
-                ),
+                    $this->invocation->toString()
+                )
             );
         }
 

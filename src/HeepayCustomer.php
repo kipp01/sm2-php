@@ -1,6 +1,6 @@
 <?php
 
-namespace Vochina\HeepayCustomer;
+namespace Sonfusu\Sm2Php;
 
 use Rtgm\sm\RtSm2;
 use Rtgm\util\MyAsn1;

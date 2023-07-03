@@ -1,6 +1,6 @@
 <?php
 
-namespace Vochina\HeepayCustomer;
+namespace Sonfusu\Sm2Php;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {

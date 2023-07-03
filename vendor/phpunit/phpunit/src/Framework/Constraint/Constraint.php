@@ -36,8 +36,8 @@ abstract class Constraint implements Countable, SelfDescribing
      * a boolean value instead: true in case of success, false in case of a
      * failure.
      *
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      */
     public function evaluate($other, string $description = '', bool $returnResult = false): ?bool
     {
@@ -82,7 +82,6 @@ abstract class Constraint implements Countable, SelfDescribing
      * This method can be overridden to implement the evaluation algorithm.
      *
      * @param mixed $other value or object to evaluate
-     *
      * @codeCoverageIgnore
      */
     protected function matches($other): bool
@@ -97,8 +96,8 @@ abstract class Constraint implements Countable, SelfDescribing
      * @param string            $description       Additional information about the test
      * @param ComparisonFailure $comparisonFailure
      *
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      *
      * @psalm-return never-return
      */
@@ -106,7 +105,7 @@ abstract class Constraint implements Countable, SelfDescribing
     {
         $failureDescription = sprintf(
             'Failed asserting that %s.',
-            $this->failureDescription($other),
+            $this->failureDescription($other)
         );
 
         $additionalFailureDescription = $this->additionalFailureDescription($other);
@@ -121,7 +120,7 @@ abstract class Constraint implements Countable, SelfDescribing
 
         throw new ExpectationFailedException(
             $failureDescription,
-            $comparisonFailure,
+            $comparisonFailure
         );
     }
 
@@ -180,7 +179,7 @@ abstract class Constraint implements Countable, SelfDescribing
      * Returns the description of the failure when this constraint appears in
      * context of an $operator expression.
      *
-     * The purpose of this method is to provide meaningful failure description
+     * The purpose of this method is to provide meaningful failue description
      * in context of operators such as LogicalNot. Native PHPUnit constraints
      * are supported out of the box by LogicalNot, but externally developed
      * ones had no way to provide correct messages in this context.

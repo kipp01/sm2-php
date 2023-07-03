@@ -22,7 +22,6 @@ use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\TestListener;
 use PHPUnit\Framework\TestSuite;
 use PHPUnit\Framework\Warning;
-use PHPUnit\Framework\WarningTestCase;
 use PHPUnit\Util\Printer;
 use PHPUnit\Util\Test as TestUtil;
 use ReflectionClass;
@@ -155,16 +154,15 @@ final class XmlResultPrinter extends Printer implements TestListener
      */
     public function endTest(Test $test, float $time): void
     {
-        if (!$test instanceof TestCase || $test instanceof WarningTestCase) {
+        if (!$test instanceof TestCase) {
             return;
         }
 
         $groups = array_filter(
             $test->getGroups(),
-            static function ($group)
-            {
+            static function ($group) {
                 return !($group === 'small' || $group === 'medium' || $group === 'large' || strpos($group, '__phpunit_') === 0);
-            },
+            }
         );
 
         $testNode = $this->document->createElement('test');
@@ -188,7 +186,7 @@ final class XmlResultPrinter extends Printer implements TestListener
 
         $annotations = TestUtil::parseTestMethodAnnotations(
             get_class($test),
-            $test->getName(false),
+            $test->getName(false)
         );
 
         foreach (['class', 'method'] as $type) {
@@ -239,8 +237,8 @@ final class XmlResultPrinter extends Printer implements TestListener
             } catch (ReflectionException $e) {
                 throw new Exception(
                     $e->getMessage(),
-                    $e->getCode(),
-                    $e,
+                    (int) $e->getCode(),
+                    $e
                 );
             }
             // @codeCoverageIgnoreEnd

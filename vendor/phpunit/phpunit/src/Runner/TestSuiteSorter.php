@@ -108,8 +108,8 @@ final class TestSuiteSorter
     }
 
     /**
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws Exception
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      */
     public function reorderTestsInSuite(Test $suite, int $order, bool $resolveDependencies, int $orderDefects, bool $isRootTestSuite = true): void
     {
@@ -123,7 +123,7 @@ final class TestSuiteSorter
 
         if (!in_array($order, $allowedOrders, true)) {
             throw new Exception(
-                '$order must be one of TestSuiteSorter::ORDER_[DEFAULT|REVERSED|RANDOMIZED|DURATION|SIZE]',
+                '$order must be one of TestSuiteSorter::ORDER_[DEFAULT|REVERSED|RANDOMIZED|DURATION|SIZE]'
             );
         }
 
@@ -134,7 +134,7 @@ final class TestSuiteSorter
 
         if (!in_array($orderDefects, $allowedOrderDefects, true)) {
             throw new Exception(
-                '$orderDefects must be one of TestSuiteSorter::ORDER_DEFAULT, TestSuiteSorter::ORDER_DEFECTS_FIRST',
+                '$orderDefects must be one of TestSuiteSorter::ORDER_DEFAULT, TestSuiteSorter::ORDER_DEFECTS_FIRST'
             );
         }
 
@@ -237,10 +237,9 @@ final class TestSuiteSorter
             /**
              * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
              */
-            function ($left, $right)
-            {
+            function ($left, $right) {
                 return $this->cmpDefectPriorityAndTime($left, $right);
-            },
+            }
         );
 
         return $tests;
@@ -253,10 +252,9 @@ final class TestSuiteSorter
             /**
              * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
              */
-            function ($left, $right)
-            {
+            function ($left, $right) {
                 return $this->cmpDuration($left, $right);
-            },
+            }
         );
 
         return $tests;
@@ -269,10 +267,9 @@ final class TestSuiteSorter
             /**
              * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
              */
-            function ($left, $right)
-            {
+            function ($left, $right) {
                 return $this->cmpSize($left, $right);
-            },
+            }
         );
 
         return $tests;

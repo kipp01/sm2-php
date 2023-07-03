@@ -2,7 +2,7 @@
 
 include "./vendor/autoload.php";
 
-use Vochina\HeepayCustomer\HeepayCustomer;
+use Sonfusu\Sm2Php\HeepayCustomer;
 
 $sm2PrivateKeyPath = __DIR__ . '/tests/test_sm2_private_key.pem';
 $sm2publicKeyPath = __DIR__ . '/tests/test_sm2_public_key.pem';
